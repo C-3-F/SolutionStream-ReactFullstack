@@ -6,6 +6,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 require('./models/user');
 require('./services/passport');
+require('./models/survey');
 mongoose.connect(keys.mongoURI);
 
 const app = express();
@@ -26,6 +27,7 @@ const port = process.env.PORT || 5000;
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 app.listen(port, host, function() {
   console.log('Server started.......');
